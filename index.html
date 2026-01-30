@@ -128,7 +128,7 @@
         </div>
 
         <div
-            class="container container-md p-4 h-[calc(100svh-3rem)] text-center"
+            class="container container-md p-4 pb-24 h-[calc(100svh-3rem)] text-center"
         >
             <textarea
                 dir="auto"
@@ -190,6 +190,34 @@
                         for="isDuet"
                     ></label>
                 </label>
+            </div>
+
+            <div class="max-w-lg px-6 my-2 mx-auto">
+                <div class="flex flex-col gap-2 bg-zinc-800 rounded-2xl p-3">
+                    <h3 class="text-zinc-300 text-sm font-semibold">Metadata (optional)</h3>
+                    <div class="flex gap-2 items-center">
+                        <label for="byInput" class="text-zinc-300 text-sm min-w-8">
+                            by:
+                        </label>
+                        <input
+                            type="text"
+                            id="byInput"
+                            class="flex-1 h-8 bg-zinc-900 text-zinc-100 border-2 border-zinc-700 rounded-lg px-2 outline-none focus:border-orange-400 transition-all"
+                            placeholder="Syncer name"
+                        />
+                    </div>
+                    <div class="flex gap-2 items-center">
+                        <label for="reInput" class="text-zinc-300 text-sm min-w-8">
+                            re:
+                        </label>
+                        <input
+                            type="text"
+                            id="reInput"
+                            class="flex-1 h-8 bg-zinc-900 text-zinc-100 border-2 border-zinc-700 rounded-lg px-2 outline-none focus:border-orange-400 transition-all"
+                            placeholder="Remarks"
+                        />
+                    </div>
+                </div>
             </div>
 
             <button

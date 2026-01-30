@@ -1,7 +1,11 @@
 import { formatTime } from '/src/utils/helpers'
 
-export function generateLrc(itemsList, isWordByWord, isDuet) {
-    let text = '[by:Generated using LySy]\n'
+export function generateLrc(itemsList, isWordByWord, isDuet, metadata = {}) {
+    let text = ''
+    if (metadata.by) text += `[by:${metadata.by}]\n`
+    if (metadata.re) text += `[re:${metadata.re}]\n`
+    if (!metadata.by && !metadata.re) text += '[by:Generated using LySy]\n'
+    
     itemsList.forEach((item) => {
         const time = item.dataset.time
         if (typeof time == 'undefined') return
