@@ -18,6 +18,8 @@ const duetCheckbox = document.getElementById('isDuet')
 const switchVocalistBtn = document.getElementById('switchVocalistBtn')
 const wordEndBtn = document.getElementById('wordEndBtn')
 const offsetInput = document.getElementById('offsetInput')
+const byInput = document.getElementById('byInput')
+const reInput = document.getElementById('reInput')
 let isWordByWord = wordByWordCheckbox.checked
 let isCharByChar = charByCharCheckbox.checked
 let isDuet = duetCheckbox.checked
@@ -725,7 +727,11 @@ dlFileBtn.addEventListener('click', () => {
         alert('You need to select an input file first')
         return
     }
-    const text = generateLrc(itemsList, isWordByWord, isDuet)
+    const metadata = {
+        by: byInput.value,
+        re: reInput.value,
+    }
+    const text = generateLrc(itemsList, isWordByWord, isDuet, metadata)
     const inputFileName = fileInput.files[0].name
     // change the extension to .lrc
     const filename = inputFileName.replace(/(\.\w+?)?$/, '.lrc')
