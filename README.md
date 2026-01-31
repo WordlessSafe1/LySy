@@ -6,8 +6,9 @@ Welcome to the Lyrics Syncer Tool! This web application helps you create [LRC](<
 
 - [x] Easy back and forth movements
 - [x] Edit and remove items
+- [x] Overwrite `By` and `Re`(Remarks) metadata
 - [x] Responsive design
-- [ ] Load text from file
+- [x] Load text from file
 - [x] Word-by-word syncing
 - [x] Syllable-by-syllable syncing
 - [x] Duet and bg tags support
