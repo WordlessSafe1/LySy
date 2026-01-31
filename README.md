@@ -1,14 +1,23 @@
-# [Ly<sub><sup><sub>rics </sub></sup></sub>Sy<sub><sup><sub>ncer</sub></sup></sub>](https://pxeemo.github.io/LySy)
+# [Ly<sub><sup><sub>rics </sub></sup></sub>Sy<sub><sup><sub>ncer</sub></sup></sub>](https://lysy.connorc.dev)
 
 Welcome to the Lyrics Syncer Tool! This web application helps you create [LRC](<https://en.m.wikipedia.org/wiki/LRC_(file_format)>) files easily and quickly. With our user-friendly interface, you can add timestamps to your lyrics and download the final LRC file hassle-free.
+
+> [!NOTE]
+> This is an independently maintained fork based on [LySy](https://github.com/pxeemo/LySy), and may be out of date or unstable.
+> The purpose of this fork is to maintain changes that fit my personal workflow.
+>
+> Feel free to use this fork or open an issue here, but requests made upstream will likely get a faster response.  
+> Any changes I consider generally useful to most users will likely be proposed upstream.
 
 ## Features
 
 - [x] Easy back and forth movements
 - [x] Edit and remove items
-- [x] Overwrite `By` and `Re`(Remarks) metadata
+- [x] Overwrite `By` and `Re` metadata fields
 - [x] Responsive design
 - [x] Load text from file
+    - [x] Raw text
+    - [x] `LRC` text, type, and timestamps
 - [x] Word-by-word syncing
 - [x] Syllable-by-syllable syncing
 - [x] Duet and bg tags support
@@ -32,7 +41,8 @@ Welcome to the Lyrics Syncer Tool! This web application helps you create [LRC](<
 
 ## Contributing
 
-We welcome contributions! If you have suggestions, bug reports, or features you'd like to see, please submit an issue or create a pull request.
+We welcome contributions! If you have suggestions, bug reports, or features you'd like to see, please submit an issue or create a pull request.  
+However, not all changes made to this fork will be upstreamed. For broader reach, consider submitting your contributions on the [upstream](https://github.com/pxeemo/lysy).
 
 ## Acknowledgements
 
