@@ -442,7 +442,7 @@ function wordEnd() {
     const wordEl = lineEl.children[currentWordIndex]
     if (typeof wordEl?.dataset?.beginTime == 'undefined') return
     const offset = Number(offsetInput.value) / 1000
-    const currentTime = max(0, wavesurfer.getCurrentTime() + offset)
+    const currentTime = Math.max(0, wavesurfer.getCurrentTime() + offset)
     wordEl.dataset.endTime = currentTime
     wordEl.classList.add('active')
     if (currentWordIndex + 1 >= lineEl.childElementCount) {
@@ -467,7 +467,7 @@ function wordEnd() {
 
 function next() {
     const offset = Number(offsetInput.value) / 1000
-    const currentTime = wavesurfer.getCurrentTime() + offset
+    const currentTime = Math.max(0, wavesurfer.getCurrentTime() + offset)
     if (isWordByWord) {
         // First item is not selected yet
         if (currentItemIndex == -1) {
