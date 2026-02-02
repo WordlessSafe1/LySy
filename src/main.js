@@ -562,20 +562,59 @@ function prevItem() {
 
 // Add keyboard event listener for spacebar
 window.addEventListener('keydown', (e) => {
+    if(
+      ['INPUT', 'TEXTAREA'].includes(document.activeElement.nodeName)
+    )
+      return
+
     if (
-        e.code === 'Space' &&
-        !['INPUT', 'TEXTAREA'].includes(document.activeElement.nodeName)
+        e.code === 'Space'
     ) {
         e.preventDefault()
         if (e.shiftKey) {
             prevItem()
-        } else {
-            if (fileInput.files.length == 0) fileInput.click()
-            else if (itemsList.length == 0) plainLyricParser()
-            else next()
+            return
         }
+        if (fileInput.files.length == 0) fileInput.click()
+        else if (itemsList.length == 0) plainLyricParser()
+        else next()
+        return
+    }
+    if ( // / => Play/pause
+        e.key === '/'
+    ) {
+        e.preventDefault()
+        playPauseBtn.click()
+        return
+    }
+    if ( // esc => close audio file, clear lyrics
+        e.key === 'Escape'
+    ) {
+        e.preventDefault()
+        if(fileInput.files.length != 0)
+          removeSongBtn.click()
+        lyricInput.value = ''
+        parseBtn.click()
+        const syncer = document.getElementById('syncer')
+        syncer.classList.add('hidden')
+        return
+    }
+    if ( // a => load audio file
+        e.key.toLowerCase() === 'a'
+    ) {
+        e.preventDefault()
+        fileInput.click()
+        return
+    }
+    if ( // l => load lyrics
+        e.key.toLowerCase() === 'l'
+    ) {
+        e.preventDefault()
+        parseBtn.click()
+        return
     }
 })
+
 
 nextItemBtn.addEventListener('click', next)
 prevItemBtn.addEventListener('click', prevItem)
