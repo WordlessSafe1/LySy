@@ -170,6 +170,7 @@ const nextItemBtn = document.getElementById('nextItemBtn')
 const prevItemBtn = document.getElementById('prevItemBtn')
 
 import editIconSvg from '/src/assets/edit.svg'
+import { awaitFilePick } from './utils/helpers'
 const editItemModal = document.getElementById('editItemModal')
 const editItemContent = document.getElementById('editItemContent')
 const editItemInput = document.getElementById('editItemInput')
@@ -673,7 +674,7 @@ function prevItem() {
 }
 
 // Add keyboard event listener for spacebar
-window.addEventListener('keydown', (e) => {
+window.addEventListener('keydown', async (e) => {
     if(
       ['INPUT', 'TEXTAREA'].includes(document.activeElement.nodeName)
     )
@@ -722,7 +723,25 @@ window.addEventListener('keydown', (e) => {
         e.key.toLowerCase() === 'l'
     ) {
         e.preventDefault()
-        parseBtn.click()
+        await awaitFilePick(lrcFileInput);
+
+        await new Promise(resolve => setTimeout(resolve, 250));
+
+        requestAnimationFrame(() => parseBtn.click());
+        return
+    }
+    if ( // < => backward
+        e.key === '<' || e.key === ','
+    ) {
+        e.preventDefault()
+        backwardBtn.click()
+        return
+    }
+    if ( // > => forward
+        e.key === '>' || e.key === '.'
+    ) {
+        e.preventDefault()
+        forwardBtn.click()
         return
     }
 })

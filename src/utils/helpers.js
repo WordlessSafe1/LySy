@@ -18,3 +18,14 @@ export function deformatTime(timeText) {
         })
     return time
 }
+
+export function awaitFilePick(input) {
+  return new Promise((resolve) => {
+    const handler = () => {
+      input.removeEventListener('change', handler)
+      resolve(input.files)
+    }
+    input.addEventListener('change', handler, { once: true })
+    input.click()
+  })
+}
